@@ -2,18 +2,20 @@ import React, { Component } from 'react';
 
 import Layout from './hoc/Layout/Layout';
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
-
-// import Importer from './components/Importer/Importer';
-// import Select from './components/Importer/Select/Select';
+import Checkout from './containers/Checkout/Checkout';
+import Orders from './containers/Orders/Orders';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
       <Layout>
-        <BurgerBuilder />
+        <Switch>
+          <Route path="/checkout" component={Checkout} />
+          <Route path="/orders" component={Orders} />
+          <Route path="/" exact component={BurgerBuilder} />
+        </Switch>
       </Layout>
-        // <Importer />
-        // <Select />
     );
   }
 }
